@@ -100,49 +100,49 @@ namespace ORMIntegrator {
             await DbContext.DisposeAsync();
         }
 
-        public IEnumerable<TResult> Select<TResult>(string query) where TResult : class? =>
+        public IEnumerable<TResult> Select<TResult>(string query) =>
             DbConnection.Query<TResult>(query, transaction: GetDbTransactionIfIsBegun());
 
-        public IEnumerable<TResult> Select<TResult>(string query, object prameters) where TResult : class? =>
+        public IEnumerable<TResult> Select<TResult>(string query, object prameters) =>
             DbConnection.Query<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
 
-        public IEnumerable<TResult> Select<TResult>((string query, object prameters) queryAndParameters) where TResult : class? =>
+        public IEnumerable<TResult> Select<TResult>((string query, object prameters) queryAndParameters) =>
             DbConnection.Query<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
 
-        public IEnumerable<TResult> Select<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id") where TResult : class? where TInclude1 : class? =>
+        public IEnumerable<TResult> Select<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.Query(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn);
 
-        public IEnumerable<TResult> Select<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") where TResult : class? where TInclude1 : class? where TInclude2 : class? =>
+        public IEnumerable<TResult> Select<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.Query(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn);
 
-        public Task<IEnumerable<TResult>> SelectAsync<TResult>(string query) where TResult : class? =>
+        public Task<IEnumerable<TResult>> SelectAsync<TResult>(string query) =>
             DbConnection.QueryAsync<TResult>(query, transaction: GetDbTransactionIfIsBegun());
 
-        public Task<IEnumerable<TResult>> SelectAsync<TResult>(string query, object prameters) where TResult : class? =>
+        public Task<IEnumerable<TResult>> SelectAsync<TResult>(string query, object prameters) =>
             DbConnection.QueryAsync<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
 
-        public Task<IEnumerable<TResult>> SelectAsync<TResult>((string query, object prameters) queryAndParameters) where TResult : class? =>
+        public Task<IEnumerable<TResult>> SelectAsync<TResult>((string query, object prameters) queryAndParameters) =>
             DbConnection.QueryAsync<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
 
-        public Task<IEnumerable<TResult>> SelectAsync<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id") where TResult : class? where TInclude1 : class? =>
+        public Task<IEnumerable<TResult>> SelectAsync<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.QueryAsync(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn);
 
-        public Task<IEnumerable<TResult>> SelectAsync<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") where TResult : class? where TInclude1 : class? where TInclude2 : class? =>
+        public Task<IEnumerable<TResult>> SelectAsync<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.QueryAsync(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn);
 
-        public List<TResult> SelectAsList<TResult>(string query) where TResult : class? =>
+        public List<TResult> SelectAsList<TResult>(string query) =>
             DbConnection.Query<TResult>(query, transaction: GetDbTransactionIfIsBegun()).AsList();
 
-        public List<TResult> SelectAsList<TResult>(string query, object prameters) where TResult : class? =>
+        public List<TResult> SelectAsList<TResult>(string query, object prameters) =>
             DbConnection.Query<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun()).AsList();
 
-        public List<TResult> SelectAsList<TResult>((string query, object prameters) queryAndParameters) where TResult : class? =>
+        public List<TResult> SelectAsList<TResult>((string query, object prameters) queryAndParameters) =>
             DbConnection.Query<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun()).AsList();
 
-        public List<TResult> SelectAsList<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id") where TResult : class? where TInclude1 : class? =>
+        public List<TResult> SelectAsList<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.Query(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn).AsList();
 
-        public List<TResult> SelectAsList<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") where TResult : class? where TInclude1 : class? where TInclude2 : class? =>
+        public List<TResult> SelectAsList<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.Query(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn).AsList();
 
         public BuiltInType GetValue<BuiltInType>(string query) =>
