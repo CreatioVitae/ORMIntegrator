@@ -17,7 +17,7 @@ namespace ORMIntegrator {
 
         public bool IsOpenedConnection => DbConnection.State == ConnectionState.Open;
 
-        public SqlManager(Func<string,TDbContext> dbContextFactoryMethod, string connectionString) {
+        public SqlManager(Func<string, TDbContext> dbContextFactoryMethod, string connectionString) {
             DbContext = dbContextFactoryMethod(connectionString);
 
             DbConnection = DbContext.Database.GetDbConnection();
@@ -144,6 +144,42 @@ namespace ORMIntegrator {
 
         public List<TResult> SelectAsList<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object prameters, string splitOn = "Id") =>
             DbConnection.Query(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn).AsList();
+
+        public TResult SelectFirst<TResult>(string query) =>
+            DbConnection.QueryFirst<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectFirst<TResult>(string query, object prameters) =>
+            DbConnection.QueryFirst<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectFirst<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QueryFirst<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectFirstAsync<TResult>(string query) =>
+            DbConnection.QueryFirstAsync<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectFirstAsync<TResult>(string query, object prameters) =>
+            DbConnection.QueryFirstAsync<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectFirstAsync<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QueryFirstAsync<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectFirstOrDefault<TResult>(string query) =>
+            DbConnection.QueryFirstOrDefault<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectFirstOrDefault<TResult>(string query, object prameters) =>
+            DbConnection.QueryFirstOrDefault<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectFirstOrDefault<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QueryFirstOrDefault<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectFirstOrDefaultAsync<TResult>(string query) =>
+            DbConnection.QueryFirstOrDefaultAsync<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectFirstOrDefaultAsync<TResult>(string query, object prameters) =>
+            DbConnection.QueryFirstOrDefaultAsync<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectFirstOrDefaultAsync<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QueryFirstOrDefaultAsync<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
 
         public BuiltInType GetValue<BuiltInType>(string query) =>
             DbConnection.ExecuteScalar<BuiltInType>(query, transaction: GetDbTransactionIfIsBegun());
