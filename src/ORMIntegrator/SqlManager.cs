@@ -181,6 +181,42 @@ namespace ORMIntegrator {
         public Task<TResult> SelectFirstOrDefaultAsync<TResult>((string query, object prameters) queryAndParameters) =>
             DbConnection.QueryFirstOrDefaultAsync<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
 
+        public TResult SelectSingle<TResult>(string query) =>
+            DbConnection.QuerySingle<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectSingle<TResult>(string query, object prameters) =>
+            DbConnection.QuerySingle<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectSingle<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QuerySingle<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectSingleAsync<TResult>(string query) =>
+            DbConnection.QuerySingleAsync<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectSingleAsync<TResult>(string query, object prameters) =>
+            DbConnection.QuerySingleAsync<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectSingleAsync<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QuerySingleAsync<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectSingleOrDefault<TResult>(string query) =>
+            DbConnection.QuerySingleOrDefault<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectSingleOrDefault<TResult>(string query, object prameters) =>
+            DbConnection.QuerySingleOrDefault<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public TResult SelectSingleOrDefault<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QuerySingleOrDefault<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectSingleOrDefaultAsync<TResult>(string query) =>
+            DbConnection.QuerySingleOrDefaultAsync<TResult>(query, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectSingleOrDefaultAsync<TResult>(string query, object prameters) =>
+            DbConnection.QuerySingleOrDefaultAsync<TResult>(query, prameters, transaction: GetDbTransactionIfIsBegun());
+
+        public Task<TResult> SelectSingleOrDefaultAsync<TResult>((string query, object prameters) queryAndParameters) =>
+            DbConnection.QuerySingleOrDefaultAsync<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+
         public BuiltInType GetValue<BuiltInType>(string query) =>
             DbConnection.ExecuteScalar<BuiltInType>(query, transaction: GetDbTransactionIfIsBegun());
 
