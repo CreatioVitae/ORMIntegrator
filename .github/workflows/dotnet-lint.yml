@@ -100,5 +100,6 @@ jobs:
       - name: Check outputs
         if: steps.git-check.outputs.modified == 'true'
         run: |
+          git config --global core.autocrlf true
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
