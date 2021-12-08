@@ -8,7 +8,7 @@ on:
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: true
-  SLN_ROOT: src/dotnet/
+  SLN_ROOT: .
 
 jobs:
   lint_csharp:
