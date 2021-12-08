@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - run: git config --global core.autocrlf true
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
@@ -23,7 +24,6 @@ jobs:
       # dotnet list
       - name: Obtain csproj to lint
         run: |
-          git config --global core.autocrlf true
           projects=$(dotnet sln list | tail -n +3 | sort | xargs -n 1 echo '  *')
           {
             echo "FORMAT_PROJECTS<<EOF"
@@ -100,6 +100,5 @@ jobs:
       - name: Check outputs
         if: steps.git-check.outputs.modified == 'true'
         run: |
-          git config --global core.autocrlf true
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
