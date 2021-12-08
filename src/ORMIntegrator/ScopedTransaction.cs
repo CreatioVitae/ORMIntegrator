@@ -1,40 +1,35 @@
-using MicroORMWrapper;
-using System;
-using System.Data.Common;
-using System.Threading.Tasks;
+namespace ORMIntegrator;
 
-namespace ORMIntegrator {
-    public class ScopedTransaction : IAsyncDisposable {
-        public DbTransaction? DbTransaction { get; set; } = null;
+public class ScopedTransaction : IAsyncDisposable {
+    public DbTransaction? DbTransaction { get; set; } = null;
 
-        bool ScopeIsComplete { get; set; } = false;
+    bool ScopeIsComplete { get; set; } = false;
 
-        public ScopedTransaction(DbTransaction? dbTransaction) =>
-            DbTransaction = dbTransaction;
+    public ScopedTransaction(DbTransaction? dbTransaction) =>
+        DbTransaction = dbTransaction;
 
-        public void Complete() {
-            if (DbTransaction.IsInvalid()) {
-                throw new ObjectDisposedException(nameof(DbTransaction));
-            }
-
-            if (ScopeIsComplete) {
-                throw new InvalidOperationException($"Already marked as completed");
-            }
-
-            ScopeIsComplete = true;
+    public void Complete() {
+        if (DbTransaction.IsInvalid()) {
+            throw new ObjectDisposedException(nameof(DbTransaction));
         }
 
-        public async ValueTask DisposeAsync() {
-            if (DbTransaction.IsInvalid()) {
-                return;
-            }
-
-            if (ScopeIsComplete) {
-                await DbTransaction.CommitAsync();
-                return;
-            }
-
-            await DbTransaction.RollbackAsync();
+        if (ScopeIsComplete) {
+            throw new InvalidOperationException($"Already marked as completed");
         }
+
+        ScopeIsComplete = true;
+    }
+
+    public async ValueTask DisposeAsync() {
+        if (DbTransaction.IsInvalid()) {
+            return;
+        }
+
+        if (ScopeIsComplete) {
+            await DbTransaction.CommitAsync();
+            return;
+        }
+
+        await DbTransaction.RollbackAsync();
     }
 }

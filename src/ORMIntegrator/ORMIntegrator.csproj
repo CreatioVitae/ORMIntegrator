@@ -1,31 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.5.1.0</Version>
-    <Company></Company>
-    <Copyright></Copyright>
+    <Version>0.6.1.0</Version>
+    <Company>Vitae</Company>
+    <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator</Product>
     <Authors>Vitae</Authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <AssemblyVersion>0.5.1.0</AssemblyVersion>
-    <FileVersion>0.5.1.0</FileVersion>
     <PackageId>ORMIntegrator</PackageId>
-    <Description>ORMIntegrator For .NET 5↑;
+    <Description>ORMIntegrator For .NET Core vNext;
 Using Dapper ＆ EF Core;
 </Description>
     <AssemblyName>ORMIntegrator</AssemblyName>
     <RootNamespace>ORMIntegrator</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>add : Single, SingleAsync Methods...</PackageReleaseNotes>
+    <PackageReleaseNotes>update .NET6</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.90" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.10" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
