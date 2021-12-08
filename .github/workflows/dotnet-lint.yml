@@ -23,6 +23,7 @@ jobs:
       # dotnet list
       - name: Obtain csproj to lint
         run: |
+          git config --global core.autocrlf true
           projects=$(dotnet sln list | tail -n +3 | sort | xargs -n 1 echo '  *')
           {
             echo "FORMAT_PROJECTS<<EOF"
