@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.6.1.0</Version>
+    <Version>0.6.2.0</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator</Product>
@@ -17,7 +17,7 @@ Using Dapper ＆ EF Core;
     <AssemblyName>ORMIntegrator</AssemblyName>
     <RootNamespace>ORMIntegrator</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>update .NET6</PackageReleaseNotes>
+    <PackageReleaseNotes>update EFCore Packages</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
