@@ -1,6 +1,6 @@
 namespace ORMIntegrator;
 
-public class ScopedTransactionBuilder<TDbContext> where TDbContext : DbContext　　　　　 {
+public class ScopedTransactionBuilder<TDbContext> where TDbContext : DbContext {
     SqlManager<TDbContext> SqlManager { get; }
 
     public ScopedTransactionBuilder(SqlManager<TDbContext> sqlManager) =>
