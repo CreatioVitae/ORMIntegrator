@@ -72,7 +72,7 @@ namespace Repository.Kashilog.Kashi.Products {
 
 Use TransactionBuilder
 ---
-
+```csharp
 using Database.Kashilog.DbContexts;
 using DomainObject.Kashilog.Configurations;
 using Microsoft.Extensions.Options;
@@ -102,3 +102,4 @@ public class DummyService : IService {
         scopedTransaction.Complete();
     }
 }
+```
