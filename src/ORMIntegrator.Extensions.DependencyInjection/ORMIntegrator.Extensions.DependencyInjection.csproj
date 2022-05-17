@@ -23,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ORMIntegrator" Version="0.6.5" />
+    <PackageReference Include="ORMIntegrator" Version="0.7.1.3" />
   </ItemGroup>
 </Project>
