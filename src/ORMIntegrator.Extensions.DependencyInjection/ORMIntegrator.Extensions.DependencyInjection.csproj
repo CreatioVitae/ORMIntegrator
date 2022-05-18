@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.6.5.0</Version>
+    <Version>0.7.1.8</Version>
     <Company></Company>
     <Copyright></Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
@@ -15,7 +15,7 @@
     <AssemblyName>ORMIntegrator.Extensions.DependencyInjection</AssemblyName>
     <RootNamespace>ORMIntegrator.Extensions.DependencyInjection</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>use ORMIntegrator 0.6.5 ...</PackageReleaseNotes>
+    <PackageReleaseNotes>use ORMIntegrator 0.7.1.5 ...</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ORMIntegrator" Version="0.6.5" />
+    <PackageReference Include="ORMIntegrator" Version="0.7.1.5" />
+    <PackageReference Include="WebPack.CoreLib" Version="0.9.17" />
   </ItemGroup>
 </Project>
