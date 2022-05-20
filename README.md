@@ -19,11 +19,20 @@ public partial class KashilogContext : DbContext {
 
     readonly string _connectionString;
 
-    public KashilogContext(string connectionString) =>
-        _connectionString = connectionString;
+    readonly bool _consolelogIsRequired;
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+    public KashilogContext(string connectionString, bool consolelogIsRequired = false) =>
+        (_connectionString, _consolelogIsRequired) = (connectionString, consolelogIsRequired);
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         optionsBuilder.UseSqlServer(_connectionString);
+
+        if (_consolelogIsRequired) {
+            optionsBuilder
+                .LogTo(Console.WriteLine)
+                .EnableSensitiveDataLogging();
+        }
+    }
 }
 
 ```
@@ -39,7 +48,7 @@ namespace Database.Kashilog;
 public static class StartupExtensionLibrary {
     public static IServiceCollection AddSqlManagerFromKashilogDatabase(this IServiceCollection services, string connectionString) =>
         services.AddSqlManager(
-            (connectionString) => new KashilogContext(connectionString),
+            (connectionString, isDevelopment) => new TravelContext(connectionString, isDevelopment),
             connectionString
         );
 }
