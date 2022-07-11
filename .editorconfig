@@ -19,6 +19,14 @@ indent_style = space
 # インデントと間隔
 indent_size = 4
 
+# csproj ファイル
+[*.csproj]
+
+#### コア EditorConfig オプション ####
+
+# インデントと間隔
+indent_size = 2
+
 # C# ファイル
 [*.cs]
 
@@ -34,9 +42,10 @@ trim_trailing_whitespace = true
 
 #### .NET コーディング規則 ####
 
-# using の整理
+# using の整理(file_header_templateは厳密にはここではない気がするがVS的にはここらしいのでここに記述しておく。)
 dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = false
+file_header_template = unset
 
 # this. と Me. の設定(thisは冗長なので、必須な場合（例：拡張メソッドの発火にやむを得ず書かなければならない等）を除き、記述しないことを推奨。)
 dotnet_style_qualification_for_event = false:warning
@@ -70,12 +79,21 @@ dotnet_style_prefer_conditional_expression_over_return = true:suggestion
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:warning
+dotnet_style_prefer_simplified_boolean_expressions = true:warning
+dotnet_style_prefer_simplified_interpolation = true:warning
 
 # フィールド設定
 dotnet_style_readonly_field = true:suggestion
 
 # パラメーターの設定
 dotnet_code_quality_unused_parameters = all:suggestion
+
+# 抑制の設定
+dotnet_remove_unnecessary_suppression_exclusions = none
+
+# 改行設定
+dotnet_style_allow_multiple_blank_lines_experimental = false:warning
+dotnet_style_allow_statement_immediately_after_block_experimental = false:warning
 
 #### C# コーディング規則 ####
 
@@ -97,6 +115,8 @@ csharp_style_expression_bodied_properties = true:suggestion
 # パターン マッチング設定（パターンマッチングが書けるケースではパターンマッチングの使用推奨。）
 csharp_style_pattern_matching_over_as_with_null_check = true:warning
 csharp_style_pattern_matching_over_is_with_cast_check = true:warning
+csharp_style_prefer_not_pattern = true:warning
+csharp_style_prefer_pattern_matching = true:warning
 csharp_style_prefer_switch_expression = true:warning
 
 # Null チェック設定（nullチェックのifステートメントより、null合体演算子,null条件演算子を優先する。）
@@ -109,13 +129,16 @@ csharp_preferred_modifier_order = public,private,protected,internal,static,exter
 # コード ブロックの設定
 csharp_prefer_braces = true:warning
 csharp_prefer_simple_using_statement = true:suggestion
+csharp_style_namespace_declarations = file_scoped:suggestion
 
 # 式レベルの設定（Defaultは簡易記述推奨。throwもステートメントより式推奨。）
 csharp_prefer_simple_default_expression = true:warning
 csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_style_implicit_object_creation_when_type_is_apparent = true:warning
 csharp_style_inlined_variable_declaration = true:suggestion
 csharp_style_pattern_local_over_anonymous_function = true:suggestion
 csharp_style_prefer_index_operator = true:suggestion
+csharp_style_prefer_null_check_over_type_check = true:suggestion
 csharp_style_prefer_range_operator = true:suggestion
 csharp_style_throw_expression = true:warning
 csharp_style_unused_value_assignment_preference = discard_variable:suggestion
@@ -212,3 +235,27 @@ dotnet_naming_style.i_で始まる.required_prefix = I
 dotnet_naming_style.i_で始まる.required_suffix = 
 dotnet_naming_style.i_で始まる.word_separator = 
 dotnet_naming_style.i_で始まる.capitalization = pascal_case
+
+# CS8600: Null リテラルまたは Null の可能性がある値を Null 非許容型に変換しています。
+dotnet_diagnostic.CS8600.severity = error
+
+# CS8601: Null 参照代入の可能性があります。
+dotnet_diagnostic.CS8601.severity = error
+
+# CS8602: null 参照の可能性があるものの逆参照です。
+dotnet_diagnostic.CS8602.severity = error
+
+# CS8604: Null 参照引数の可能性があります。
+dotnet_diagnostic.CS8604.severity = error
+
+# null リテラルを null 非許容参照型に変換できません。
+dotnet_diagnostic.CS8625.severity = error
+
+# CA1827：Any（）を使用できる場合は、Count（）またはLongCount（）を使用しないでください
+dotnet_diagnostic.CA1827.severity=warning
+
+# CA1829：使用可能な場合はCount（）の代わりにLength / Countプロパティを使用します
+dotnet_diagnostic.CA1829.severity=error
+
+# CA1828：AnyAsync（）を使用できる場合は、CountAsync（）またはLongCountAsync（）を使用しないでください
+dotnet_diagnostic.CA1828.severity=warning
