@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ORMIntegrator" Version="0.7.1.5" />
+    <PackageReference Include="ORMIntegrator" Version="0.7.2.1" />
     <PackageReference Include="WebPack.CoreLib" Version="0.9.17" />
   </ItemGroup>
 </Project>
