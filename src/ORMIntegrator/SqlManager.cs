@@ -65,32 +65,32 @@ public class SqlManager<TDbContext> : IAsyncDisposable where TDbContext : DbCont
         DbConnection.Open();
     }
 
-    public async ValueTask BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted) {
-        DbTransaction = await DbConnection.BeginTransactionAsync(isolationLevel);
-        await DbContext.Database.UseTransactionAsync(DbTransaction);
+    public async ValueTask BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default) {
+        DbTransaction = await DbConnection.BeginTransactionAsync(isolationLevel, cancellationToken);
+        await DbContext.Database.UseTransactionAsync(DbTransaction, cancellationToken: cancellationToken);
     }
 
-    public async ValueTask<ScopedTransaction> BeginScopedTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted) {
-        DbTransaction = await DbConnection.BeginTransactionAsync(isolationLevel);
-        await DbContext.Database.UseTransactionAsync(DbTransaction);
+    public async ValueTask<ScopedTransaction> BeginScopedTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default) {
+        DbTransaction = await DbConnection.BeginTransactionAsync(isolationLevel, cancellationToken);
+        await DbContext.Database.UseTransactionAsync(DbTransaction, cancellationToken: cancellationToken);
 
         return new ScopedTransaction(DbTransaction);
     }
 
-    public async ValueTask CommitAsync() {
+    public async ValueTask CommitAsync(CancellationToken cancellationToken = default) {
         if (DbTransaction.IsInvalid()) {
             return;
         }
 
-        await DbTransaction.CommitAsync();
+        await DbTransaction.CommitAsync(cancellationToken);
     }
 
-    public async ValueTask RollbackIfUncommitedAsync() {
+    public async ValueTask RollbackIfUncommitedAsync(CancellationToken cancellationToken = default) {
         if (DbTransaction.IsInvalid()) {
             return;
         }
 
-        await DbTransaction.RollbackAsync();
+        await DbTransaction.RollbackAsync(cancellationToken);
     }
 
     DbTransaction? GetDbTransactionIfIsBegun() =>
