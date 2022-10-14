@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ORMIntegrator;
 using System;
 
+// ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ServiceCollectionExtensionLibrary {
@@ -11,7 +12,7 @@ public static class ServiceCollectionExtensionLibrary {
             new SqlManager<TDbContext>(
                dbContextFactoryMethod,
                connectionString,
-               DefaultEnvironment.IsDevelopment()
+               DefaultWebEnvironment.WebApps.IsDevelopment()
             ));
 
         serviceDescriptors.AddScoped(
