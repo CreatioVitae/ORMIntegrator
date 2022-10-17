@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using ORMIntegrator;
 using System;
 
@@ -7,12 +7,26 @@ using System;
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ServiceCollectionExtensionLibrary {
-    public static IServiceCollection AddSqlManager<TDbContext>(this IServiceCollection serviceDescriptors, Func<string, bool, TDbContext> dbContextFactoryMethod, string connectionString) where TDbContext : DbContext, new() {
+    public static IServiceCollection AddSqlManager<TDbContext>(this IServiceCollection serviceDescriptors, Func<string, bool, TDbContext> dbContextFactoryMethod, string connectionString, IDefaultEnvironmentAccessor defaultEnvironment, bool isHandleAsSingleton = false) where TDbContext : DbContext, new() {
+        if (isHandleAsSingleton) {
+            serviceDescriptors.AddSingleton(_ =>
+                new SqlManager<TDbContext>(
+                    dbContextFactoryMethod,
+                    connectionString,
+                    defaultEnvironment.IsDevelopment()
+                ));
+
+            serviceDescriptors.AddSingleton(
+                serviceProvider => new ScopedTransactionBuilder<TDbContext>(serviceProvider.GetRequiredService<SqlManager<TDbContext>>()));
+
+            return serviceDescriptors;
+        }
+
         serviceDescriptors.AddScoped(_ =>
             new SqlManager<TDbContext>(
-               dbContextFactoryMethod,
-               connectionString,
-               DefaultWebEnvironment.WebApps.IsDevelopment()
+                dbContextFactoryMethod,
+                connectionString,
+                defaultEnvironment.IsDevelopment()
             ));
 
         serviceDescriptors.AddScoped(
