@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.8.0.1</Version>
+    <Version>0.8.0.2</Version>
     <Company></Company>
     <Copyright></Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.9.24" />
+    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.9.25" />
     <PackageReference Include="ORMIntegrator" Version="0.8.0.1" />
   </ItemGroup>
 </Project>
