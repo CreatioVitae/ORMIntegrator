@@ -20,6 +20,6 @@
 
   <ItemGroup>
     <PackageReference Include="BclExtensionPack.CoreLib" Version="0.9.26" />
-    <PackageReference Include="ORMIntegrator" Version="0.8.0.1" />
+    <PackageReference Include="ORMIntegrator" Version="0.8.1.1" />
   </ItemGroup>
 </Project>
