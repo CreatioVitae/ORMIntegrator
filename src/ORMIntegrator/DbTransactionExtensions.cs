@@ -4,5 +4,5 @@ namespace ORMIntegrator;
 
 internal static class DbTransactionExtensions {
     internal static bool IsInvalid([NotNullWhen(false)] this DbTransaction? transaction) =>
-        transaction == null || transaction.Connection == null;
+        transaction?.Connection is null;
 }
