@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.8.2.2</Version>
-    <Company></Company>
-    <Copyright></Copyright>
+    <Company>Vitae</Company>
+    <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
     <Authors>Vitae</Authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
