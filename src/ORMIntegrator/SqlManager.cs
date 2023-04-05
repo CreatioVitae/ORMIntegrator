@@ -9,13 +9,10 @@ public class SqlManager<TDbContext> : IAsyncDisposable where TDbContext : DbCont
 
     DbTransaction? DbTransaction { get; set; }
 
-    public DbTransaction GetDbTransaction() {
-        if (DbTransaction.IsInvalid()) {
-            throw new InvalidOperationException($"{nameof(DbTransaction)}が利用可能な状態になっていません。");
-        }
-
-        return DbTransaction;
-    }
+    public DbTransaction GetDbTransaction() =>
+        DbTransaction.IsInvalid()
+            ? throw new InvalidOperationException($"{nameof(DbTransaction)}が利用可能な状態になっていません。")
+            : DbTransaction;
 
     public bool IsOpenedConnection => DbConnection.State == ConnectionState.Open;
 

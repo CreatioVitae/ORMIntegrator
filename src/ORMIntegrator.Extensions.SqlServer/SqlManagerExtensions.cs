@@ -1,6 +1,4 @@
 using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
@@ -9,6 +7,9 @@ namespace ORMIntegrator;
 public static class SqlManagerExtensions {
     public static SqlConnection GetSqlConnection<TDbContext>(this SqlManager<TDbContext> sqlManager) where TDbContext : DbContext =>
         (SqlConnection)sqlManager.DbConnection;
+
+    internal static SqlTransaction GetSqlTransaction<TDbContext>(this SqlManager<TDbContext> sqlManager) where TDbContext : DbContext =>
+        (SqlTransaction)sqlManager.GetDbTransaction();
 
     public static void SetDefaultColumnMappings(this SqlBulkCopy sqlBulkCopy, DataTable dataTable) {
         foreach (DataColumn column in dataTable.Columns) {
@@ -54,11 +55,9 @@ public static class SqlManagerExtensions {
 
     public static async ValueTask BulkInsertAsync<TDbContext, T>(this SqlManager<TDbContext> sqlManager, IList<T> entities) where TDbContext : DbContext {
 
-        var sqlConnection = sqlManager.GetSqlConnection();
-
-        using var bulkCopy = new SqlBulkCopy(sqlConnection);
-
         var dataTable = entities.ToDataTable(sqlManager.DbContext);
+
+        using var bulkCopy = new SqlBulkCopy(sqlManager.GetSqlConnection(), SqlBulkCopyOptions.Default, sqlManager.GetSqlTransaction());
 
         bulkCopy.DestinationTableName = dataTable.TableName;
 

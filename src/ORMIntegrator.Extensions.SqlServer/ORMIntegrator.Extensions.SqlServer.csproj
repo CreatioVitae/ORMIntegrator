@@ -2,13 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.1-beta</Version>
+    <Company>Vitae</Company>
+    <Copyright>Vitae</Copyright>
+    <Product>ORMIntegrator.Extensions.SqlServer</Product>
+    <Authors>Vitae</Authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <PackageId>ORMIntegrator.Extensions.SqlServer</PackageId>
+
+
+    <Description>ORMIntegrator SqlServer Extensions.</Description>
+    <AssemblyName>ORMIntegrator.Extensions.SqlServer</AssemblyName>
+    <RootNamespace>ORMIntegrator.Extensions.SqlServer</RootNamespace>
+    <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
+    <PackageReleaseNotes>Add BulkInsertAsync.</PackageReleaseNotes>
+
+
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
-    <PackageReference Include="ORMIntegrator.Extensions.DependencyInjection" Version="0.8.2.2" />
+    <PackageReference Include="ORMIntegrator" Version="0.8.3.1" />
   </ItemGroup>
 
 </Project>
