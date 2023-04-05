@@ -4,22 +4,27 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.8.3.1</Version>
+    <Version>0.1.1-beta</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
-    <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
+    <Product>ORMIntegrator.Extensions.SqlServer</Product>
     <Authors>Vitae</Authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <PackageId>ORMIntegrator.Extensions.DependencyInjection</PackageId>
-    <Description>DI Extension For ORMIntegrator;</Description>
-    <AssemblyName>ORMIntegrator.Extensions.DependencyInjection</AssemblyName>
-    <RootNamespace>ORMIntegrator.Extensions.DependencyInjection</RootNamespace>
+    <PackageId>ORMIntegrator.Extensions.SqlServer</PackageId>
+
+
+    <Description>ORMIntegrator SqlServer Extensions.</Description>
+    <AssemblyName>ORMIntegrator.Extensions.SqlServer</AssemblyName>
+    <RootNamespace>ORMIntegrator.Extensions.SqlServer</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>Upgrade ORMIntegrator.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add BulkInsertAsync.</PackageReleaseNotes>
+
+
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.10.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
     <PackageReference Include="ORMIntegrator" Version="0.8.3.1" />
   </ItemGroup>
+
 </Project>

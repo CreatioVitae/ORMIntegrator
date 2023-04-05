@@ -7,7 +7,7 @@ public class ScopedTransactionBuilder<TDbContext> where TDbContext : DbContext {
         SqlManager = sqlManager;
 
     public async ValueTask<ScopedTransaction> BeginScopedTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted) =>
-        await SqlManager.BeginScopedTransactionAsync();
+        await SqlManager.BeginScopedTransactionAsync(isolationLevel);
 
     public async ValueTask ExecutePooledCommandsAsync(CancellationToken cancellationToken = default) =>
         await SqlManager.DbContext.SaveChangesAsync(cancellationToken);
