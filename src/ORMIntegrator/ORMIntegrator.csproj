@@ -4,15 +4,14 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.8.3.1</Version>
+    <Version>0.9.1.1</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator</Product>
     <Authors>Vitae</Authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <PackageId>ORMIntegrator</PackageId>
-    <Description>ORMIntegrator For .NET Core vNext;
-Using Dapper ＆ EF Core;
+    <Description>upgrade package.
 </Description>
     <AssemblyName>ORMIntegrator</AssemblyName>
     <RootNamespace>ORMIntegrator</RootNamespace>
@@ -22,7 +21,7 @@ Using Dapper ＆ EF Core;
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />
   </ItemGroup>
 
 </Project>
