@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORMIntegrator.Extensions.De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORMIntegrator.Extensions.SqlServer", "src\ORMIntegrator.Extensions.SqlServer\ORMIntegrator.Extensions.SqlServer.csproj", "{9A88FBDC-03D5-448D-9802-B71CDACDEDA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMIntegrator.Extensions.DependencyInjection.SqlServer", "src\ORMIntegrator.Extensions.DependencyInjection.SqlServer\ORMIntegrator.Extensions.DependencyInjection.SqlServer.csproj", "{36EB7124-AB43-4D83-ACD4-D50AD869795F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9A88FBDC-03D5-448D-9802-B71CDACDEDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A88FBDC-03D5-448D-9802-B71CDACDEDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A88FBDC-03D5-448D-9802-B71CDACDEDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36EB7124-AB43-4D83-ACD4-D50AD869795F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36EB7124-AB43-4D83-ACD4-D50AD869795F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36EB7124-AB43-4D83-ACD4-D50AD869795F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36EB7124-AB43-4D83-ACD4-D50AD869795F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
