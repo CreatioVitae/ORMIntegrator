@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using ORMIntegrator;
 using System;
@@ -7,13 +8,13 @@ using System;
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ServiceCollectionExtensionLibrary {
-    public static IServiceCollection AddSqlManager<TDbContext>(this IServiceCollection serviceDescriptors, Func<string, bool, TDbContext> dbContextFactoryMethod, string connectionString, IDefaultEnvironmentAccessor defaultEnvironment, bool isHandleAsSingleton = false) where TDbContext : DbContext, new() {
+    public static IServiceCollection AddSqlManager<TDbContext>(this IServiceCollection serviceDescriptors, Func<string, bool, TDbContext> dbContextFactoryMethod, string connectionString, IConfiguration configuration, IDefaultEnvironmentAccessor defaultEnvironment, bool isHandleAsSingleton = false) where TDbContext : DbContext, new() {
         if (isHandleAsSingleton) {
             serviceDescriptors.AddSingleton(_ =>
                 new SqlManager<TDbContext>(
                     dbContextFactoryMethod,
                     connectionString,
-                    defaultEnvironment.IsDevelopment()
+                    defaultEnvironment.IsDevelopment() && configuration.GetDevLoggingIsForceDisabled() is false
                 ));
 
             serviceDescriptors.AddSingleton(
@@ -26,7 +27,7 @@ public static class ServiceCollectionExtensionLibrary {
             new SqlManager<TDbContext>(
                 dbContextFactoryMethod,
                 connectionString,
-                defaultEnvironment.IsDevelopment()
+                defaultEnvironment.IsDevelopment() && configuration.GetDevLoggingIsForceDisabled() is false
             ));
 
         serviceDescriptors.AddScoped(
