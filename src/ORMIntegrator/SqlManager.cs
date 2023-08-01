@@ -155,10 +155,10 @@ public class SqlManager<TDbContext> : IAsyncDisposable where TDbContext : DbCont
         return DbConnection.Query<TResult>(queryAndParameters.query, queryAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
     }
 
-    public IEnumerable<TResult> Select<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object prameters, string splitOn = "Id", [CallerMemberName] string callerMethodName = SqlLogger.DefaultCallerMethodName) {
-        SqlLogger.LoggingIf(predicate: ConsoleLogIsRequired, sql: query, parameters: prameters, callerMethodName: callerMethodName);
+    public IEnumerable<TResult> Select<TResult, TInclude1>(string query, Func<TResult, TInclude1, TResult> includeFunc, object parameters, string splitOn = "Id", [CallerMemberName] string callerMethodName = SqlLogger.DefaultCallerMethodName) {
+        SqlLogger.LoggingIf(predicate: ConsoleLogIsRequired, sql: query, parameters: parameters, callerMethodName: callerMethodName);
 
-        return DbConnection.Query(query, includeFunc, prameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn);
+        return DbConnection.Query(query, includeFunc, parameters, transaction: GetDbTransactionIfIsBegun(), true, splitOn);
     }
 
     public IEnumerable<TResult> Select<TResult, TInclude1, TInclude2>(string query, Func<TResult, TInclude1, TInclude2, TResult> includeFunc, object parameters, string splitOn = "Id", [CallerMemberName] string callerMethodName = SqlLogger.DefaultCallerMethodName) {
@@ -422,6 +422,11 @@ public class SqlManager<TDbContext> : IAsyncDisposable where TDbContext : DbCont
         SqlLogger.LoggingIf(predicate: ConsoleLogIsRequired, sql: commandAndParameters.command, parameters: commandAndParameters.prameters, callerMethodName: callerMethodName);
 
         return DbConnection.ExecuteAsync(commandAndParameters.command, commandAndParameters.prameters, transaction: GetDbTransactionIfIsBegun());
+    }
+
+    public IAsyncEnumerable<TResult> SelectIterativelyAsync<TResult>(string query, object parameters, [CallerMemberName] string callerMethodName = SqlLogger.DefaultCallerMethodName) {
+        SqlLogger.LoggingIf(predicate: ConsoleLogIsRequired, sql: query, parameters: parameters, callerMethodName: callerMethodName);
+        return DbConnection.QueryUnbufferedAsync<TResult>(query, parameters, transaction: GetDbTransactionIfIsBegun());
     }
 
     public void Dispose() {
