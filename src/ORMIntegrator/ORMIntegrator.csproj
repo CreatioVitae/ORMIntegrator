@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.9.3.1</Version>
+    <Version>0.9.5.1</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator</Product>
@@ -17,12 +17,12 @@
     <AssemblyName>ORMIntegrator</AssemblyName>
     <RootNamespace>ORMIntegrator</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>upgrade .NET Version.</PackageReleaseNotes>
+    <PackageReleaseNotes>upgrade .NET Version...＆ Add SelectIterativelyAsync Api.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.138" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.7" />
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.9" />
   </ItemGroup>
 
 </Project>
