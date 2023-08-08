@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.9.6.1</Version>
+    <Version>0.9.7.1</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.11.1" />
+    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.12.1" />
     <PackageReference Include="ORMIntegrator" Version="0.9.5.1" />
   </ItemGroup>
 </Project>
