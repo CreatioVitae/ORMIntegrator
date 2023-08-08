@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="ORMIntegrator.Extensions.DependencyInjection" Version="0.9.7.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
   </ItemGroup>
 
 </Project>
