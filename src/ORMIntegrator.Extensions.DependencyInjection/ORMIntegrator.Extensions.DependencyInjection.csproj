@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.9.9.1</Version>
+    <Version>0.9.10.1</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
@@ -15,11 +15,11 @@
     <AssemblyName>ORMIntegrator.Extensions.DependencyInjection</AssemblyName>
     <RootNamespace>ORMIntegrator.Extensions.DependencyInjection</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>Upgrade BclExtensionPack.</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade dotnet version.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.13.1" />
-    <PackageReference Include="ORMIntegrator" Version="0.9.8.1" />
+    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.14.1" />
+    <PackageReference Include="ORMIntegrator" Version="0.9.10.1" />
   </ItemGroup>
 </Project>
