@@ -1,10 +1,7 @@
 namespace ORMIntegrator;
 
-public class ScopedTransactionBuilder<TDbContext> where TDbContext : DbContext {
-    SqlManager<TDbContext> SqlManager { get; }
-
-    public ScopedTransactionBuilder(SqlManager<TDbContext> sqlManager) =>
-        SqlManager = sqlManager;
+public class ScopedTransactionBuilder<TDbContext>(SqlManager<TDbContext> sqlManager) where TDbContext : DbContext {
+    SqlManager<TDbContext> SqlManager { get; } = sqlManager;
 
     public async ValueTask<ScopedTransaction> BeginScopedTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted) =>
         await SqlManager.BeginScopedTransactionAsync(isolationLevel);
