@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.11" />
-    <PackageReference Include="ORMIntegrator" Version="0.9.8.1" />
+    <PackageReference Include="ORMIntegrator" Version="0.10.1.1" />
   </ItemGroup>
 
 </Project>
