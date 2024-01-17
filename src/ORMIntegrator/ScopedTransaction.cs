@@ -9,7 +9,7 @@ public class ScopedTransaction(DbTransaction? dbTransaction) : IAsyncDisposable 
 
         ObjectDisposedException.ThrowIf(DbTransaction.IsInvalid(), typeof(DbTransaction));
 
-       if (ScopeIsComplete) {
+        if (ScopeIsComplete) {
             throw new InvalidOperationException($"Already marked as completed");
         }
 
