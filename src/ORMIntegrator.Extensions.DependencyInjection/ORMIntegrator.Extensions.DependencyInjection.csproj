@@ -21,6 +21,6 @@
   <ItemGroup>
     <PackageReference Include="BclExtensionPack.CoreLib" Version="0.14.1" />
     <PackageReference Include="ORMIntegrator" Version="0.10.1.1" />
-    <PackageReference Include="SkiaSharp" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp" Version="2.88.7" />
   </ItemGroup>
 </Project>
