@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.10.1.1</Version>
+    <Version>0.11.1</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection</Product>
@@ -19,8 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.14.1" />
-    <PackageReference Include="ORMIntegrator" Version="0.10.1.1" />
-    <PackageReference Include="SkiaSharp" Version="2.88.7" />
+    <PackageReference Include="BclExtensionPack.CoreLib" Version="0.15.1" />
+    <PackageReference Include="ORMIntegrator" Version="0.11.1" />
   </ItemGroup>
 </Project>

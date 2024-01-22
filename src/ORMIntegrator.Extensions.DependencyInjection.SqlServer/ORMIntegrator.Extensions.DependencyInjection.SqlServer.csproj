@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.10.1.1</Version>
+    <Version>0.11.1.1</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection.SqlServer</Product>
@@ -15,13 +15,12 @@
     <AssemblyName>ORMIntegrator.Extensions.DependencyInjection.SqlServer</AssemblyName>
     <RootNamespace>ORMIntegrator.Extensions.DependencyInjection.SqlServer</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>Upgrade dotonet Version7.0.11.</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade dotonet Version8.0.1.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ORMIntegrator.Extensions.DependencyInjection" Version="0.10.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
-    <PackageReference Include="SkiaSharp" Version="2.88.7" />
+    <PackageReference Include="ORMIntegrator.Extensions.DependencyInjection" Version="0.11.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
   </ItemGroup>
 
 </Project>
