@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.12.1</Version>
+    <Version>0.12.2</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator.Extensions.DependencyInjection.SqlServer</Product>
@@ -15,11 +15,11 @@
     <AssemblyName>ORMIntegrator.Extensions.DependencyInjection.SqlServer</AssemblyName>
     <RootNamespace>ORMIntegrator.Extensions.DependencyInjection.SqlServer</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>Upgrade dotonet Version8.0.3</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade package.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ORMIntegrator.Extensions.DependencyInjection" Version="0.12.1" />
+    <PackageReference Include="ORMIntegrator.Extensions.DependencyInjection" Version="0.12.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
   </ItemGroup>
 
