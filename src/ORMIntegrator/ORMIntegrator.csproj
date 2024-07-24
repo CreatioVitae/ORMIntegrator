@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.12.1</Version>
+    <Version>0.12.3</Version>
     <Company>Vitae</Company>
     <Copyright>Vitae</Copyright>
     <Product>ORMIntegrator</Product>
@@ -17,12 +17,12 @@
     <AssemblyName>ORMIntegrator</AssemblyName>
     <RootNamespace>ORMIntegrator</RootNamespace>
     <PackageProjectUrl>https://github.com/CreatioVitae/ORMIntegrator</PackageProjectUrl>
-    <PackageReleaseNotes>upgrade .NET Version.(8.0.1 => 8.0.3)</PackageReleaseNotes>
+    <PackageReleaseNotes>upgrade .NET Version.(8.0.3 =&gt; 8.0.6)</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.6" />
   </ItemGroup>
 
 </Project>
